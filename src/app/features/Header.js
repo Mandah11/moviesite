@@ -52,13 +52,13 @@ export const Header = () => {
           <div className="w-140 h-7 gap-[8px] flex flex-col">
             <div className="w-140 h-7 gap-[8px] flex ">
               <button
-                className="h-7 border-1  border-zinc-400 w-19 rounded-sm items-center flex justify-center"
+                className="h-7 border-1  border-zinc-400 w-19 rounded-sm items-center flex justify-center cursor-pointer"
                 onClick={() => {
                   setOpenGenre(!openGenre);
                 }}
               >
                 <DownIcon />
-                <p className="text-black text-[10px]   "> Genre </p>
+                <p className="text-black text-[10px]  "> Genre </p>
               </button>
               <div className="flex items-center border-1  border-zinc-400  rounded-sm justify-evenly w-60">
                 <Search />
@@ -74,7 +74,7 @@ export const Header = () => {
             </div>
 
             {openGenre && <Genre />}
-            {moviesData.length > 1 && (
+            {values.length > 1 && (
               <SearchResults moviesData={moviesData} valuees={values} />
             )}
           </div>

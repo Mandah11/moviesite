@@ -12,6 +12,7 @@ const options = {
 export const TrailerId = ({ id }) => {
   const [MoviesMore, setMoviesMore] = useState([]);
   const [loading, setLoading] = useState(false);
+
   const url = `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`;
   const getMore = async () => {
     setLoading(true);

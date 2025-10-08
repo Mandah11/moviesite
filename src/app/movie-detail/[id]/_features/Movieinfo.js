@@ -18,7 +18,7 @@ export const Movieinfo = ({ id }) => {
   const [MoviesData, setMoviesData] = useState([]);
   const [MoviesInform, setMoviesInform] = useState();
   const [MoviesMore, setMoviesMore] = useState([]);
-  const [trailer, setTrailer] = useState(false);
+  const [trailer, setTrailer] = useState(null);
   const [loading, setLoading] = useState(false);
   const getData = async () => {
     setLoading(true);
@@ -206,8 +206,9 @@ export const Movieinfo = ({ id }) => {
           <div className="w-285 flex  justify-between">
             <div className="w-50  ml-2 text-xl  ">More Like this</div>
             <Link href={`/movieseemore/?id=${id}`}>
-              <button className="w-50   justify-end  flex items-center">
-                See more <RightIcon />
+              <button className="w-50   justify-end  flex items-center ">
+                <p className="cursor-pointer"> See more</p>
+                <RightIcon />
               </button>
             </Link>
           </div>

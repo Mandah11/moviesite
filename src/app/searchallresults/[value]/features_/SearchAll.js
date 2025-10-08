@@ -2,6 +2,7 @@
 import { GenreInform } from "@/app/features/GenreInform";
 import { MovieCard } from "@/app/_component/MovieCard";
 import { useState, useEffect } from "react";
+import { NotResult } from "@/app/_component/NotResult";
 const options = {
   method: "GET",
   headers: {
@@ -26,13 +27,16 @@ export const SearchAll = ({ value }) => {
   return (
     <>
       <div>
-        <div className="w-146 text-[30px] flex justify-center h-30 items-center">
-          Search Filter
+        <div className="w-160   text-[30px] flex justify-end h-30 items-center">
+          Search Results
         </div>
         <div className="w-[1440px] flex justify-between m-auto  ">
-          <div className="border-r-4 w-300 ">
+          <div className="border-r-1 w-290 ">
             <div className=" w-70  flex justify-center mt-3">
-              {value.length} titles in "movie"
+              <div>
+                {MoviesData.length} results for "{value}"
+                <div>{MoviesData.length == 0 && <NotResult />}</div>
+              </div>
             </div>
             <div className="flex flex-wrap w-250 mt-4 gap-4 justify-center items-center">
               {MoviesData.map((movie, index) => {
@@ -48,7 +52,7 @@ export const SearchAll = ({ value }) => {
               })}
             </div>
           </div>
-          <div className="w-100 ">
+          <div className="w-100 ml-10 ">
             <GenreInform />
           </div>
         </div>

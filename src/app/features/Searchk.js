@@ -27,14 +27,14 @@ export const SearchResults = (props) => {
                     src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                   />
                 </div>
-                <div className="flex  w-109 justify-between">
-                  <div className=" flex flex-col  h-full w-20  justify-start ">
-                    <div className=" text-xs   flex">
-                      <span className="font-bold text-[10px]">
+                <div className="flex  w-109 justify-between  h-[135px] ">
+                  <div className=" flex flex-col  h-full w-20  justify-evenly  ">
+                    <div className=" text-xs  w-50  flex">
+                      <span className="font-bold text-[14px]">
                         {movie.title}{" "}
                       </span>{" "}
                     </div>
-                    <div className="flex h-5  items-center">
+                    <div className="flex h-5  items-center mt-1">
                       <LittlestarIcon />
                       <span className="text-[15px] font-[400] ml-1">
                         {movie.vote_average}
@@ -46,13 +46,13 @@ export const SearchResults = (props) => {
                         10
                       </span>
                     </div>
-                    <div className="text-[10px] font-[500] mt-5 flex ml-1">
+                    <div className="text-[12px] font-[500] mt-5 flex ml-1 h-10  items-center">
                       {movie.release_date}
                     </div>
                   </div>
                   <div className="flex w-30  items-end ">
                     <Link href={`/movie-detail/${movie.id}`}>
-                      <button className="flex items-center ml-3 gap-1 mb-3  text-[14px] ">
+                      <button className="flex items-center ml-3 gap-1 mb-3  text-[14px] cursor-pointer  ">
                         see more <Right />
                       </button>
                     </Link>
@@ -65,10 +65,10 @@ export const SearchResults = (props) => {
       </div>
 
       <div
-        className="h-15 flex items-center justify-center"
+        className="h-15 flex items-center  justify-start ml-5"
         onClick={handleResultClick}
       >
-        See all results for "{valuees}"
+        <p className="cursor-pointer"> See all results for "{valuees}"</p>
       </div>
     </div>
   );
