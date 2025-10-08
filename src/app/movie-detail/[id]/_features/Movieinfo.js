@@ -145,6 +145,13 @@ export const Movieinfo = ({ id }) => {
             </div>
             <div className=" absolute h-full mt-10">
               {trailer && <TrailerId id={id} />}
+              {/* <button
+                onClick={() => trailer(null)}
+                className="absolute top-0 right-0 w-[20px] h-[20px] bg-white text-black hover:text-red"
+              >
+                {" "}
+                x{" "}
+              </button> */}
             </div>
           </div>
           <div className="w-full">

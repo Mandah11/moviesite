@@ -1,8 +1,9 @@
 "use client";
 import { useParams } from "next/navigation";
 
-import { Movieinfo } from "./_features/Movieinfo";
 import { Header } from "@/app/features/Header";
+import { MovieGenre } from "./__features/Moviegenre";
+import { Footer } from "@/app/features/Footer";
 
 export default function MovieDetail() {
   const params = useParams();
@@ -15,7 +16,8 @@ export default function MovieDetail() {
   return (
     <div>
       <Header />
-      <Movieinfo id={id} />
+      <MovieGenre id={id} />
+      <Footer />
     </div>
   );
 }

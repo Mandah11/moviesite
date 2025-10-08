@@ -1,10 +1,11 @@
 import { Footer } from "../features/Footer";
-// import { HeaderPopular } from "./HeaderPopular";
+import { Header } from "../features/Header";
+
 import { PopularMovieSeeMore } from "../features/PopularMovieSeemore";
 export default function Home() {
   return (
     <div>
-      {/* <HeaderPopular /> */}
+      <Header />
       <PopularMovieSeeMore title={"Popular"} />
       <Footer />
     </div>

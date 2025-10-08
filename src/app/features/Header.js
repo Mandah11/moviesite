@@ -43,7 +43,7 @@ export const Header = () => {
 
   return (
     <div>
-      <div className="m-auto  flex-col  w-[1440px] h-12 items-center mt-2 z-20 relative">
+      <div className="m-auto  flex-col  w-[1440px] h-12 items-center mt-2 z-20 relative  ">
         <div className="w-360 h-10 flex items-center justify-evenly ">
           <div className="w-80 ">
             <MoviesZ />
@@ -58,12 +58,10 @@ export const Header = () => {
                 }}
               >
                 <DownIcon />
-                <p className="text-black text-[10px]   "> Genre</p>
+                <p className="text-black text-[10px]   "> Genre </p>
               </button>
               <div className="flex items-center border-1  border-zinc-400  rounded-sm justify-evenly w-60">
-                <Link href="/searchresult">
-                  <Search />
-                </Link>
+                <Search />
 
                 <input
                   className="w-50 h-full   text-xs outline-0"
@@ -76,7 +74,9 @@ export const Header = () => {
             </div>
 
             {openGenre && <Genre />}
-            {moviesData.length > 1 && <SearchResults moviesData={moviesData} />}
+            {moviesData.length > 1 && (
+              <SearchResults moviesData={moviesData} valuees={values} />
+            )}
           </div>
 
           <button className="border-solid border-1 h-6 w-7 items-center flex justify-center border-zinc-400 rounded-sm ">

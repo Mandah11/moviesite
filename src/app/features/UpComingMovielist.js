@@ -21,6 +21,7 @@ export const UpComingMovielist = (props) => {
   const getData = async () => {
     setLoading(true);
     const data = await fetch(apiLink, options);
+    console.log("datadatadatadata", data);
     const jsondata = await data.json();
     setUpComingMoviesData(jsondata.results.splice(10));
     setTimeout(() => {

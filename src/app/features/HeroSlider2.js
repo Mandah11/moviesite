@@ -1,9 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { HeroSliderPhoto } from "../_component/HeroSliderPhoto";
-import { NextButtonIcon } from "../icons/NextButtonIcon";
+
 import { HeroSliderLoading } from "../_component/HerosliderLoading";
-import { TrailerId } from "./TrailerId";
 
 const apiLink =
   "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";

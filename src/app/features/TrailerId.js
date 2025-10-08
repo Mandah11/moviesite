@@ -34,11 +34,11 @@ export const TrailerId = ({ id }) => {
   }
   return (
     <>
-      <div className="w-280 flex   h-full justify-center ">
+      <div className="w-280 flex relative h-full justify-center ">
         <iframe
           width="800px"
           height="490px"
-          src={`https://www.youtube.com/embed/${MoviesMore[0]?.key}`}
+          src={`https://www.youtube.com/embed/${MoviesMore[0]?.key}?autoplay=1`}
           title="Path of the Wind - My Neighbor Totoro [Piano Tutorial] (Synthesia) // Torby Brand"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>

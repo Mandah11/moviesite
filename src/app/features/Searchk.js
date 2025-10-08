@@ -3,17 +3,22 @@
 import { Right } from "../icons/Right";
 import { LittlestarIcon } from "../icons/LittleStar";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 export const SearchResults = (props) => {
-  const { moviesData } = props;
+  const { moviesData, valuees } = props;
+  const router = useRouter();
+  const handleResultClick = () => {
+    router.push(`/searchallresults/${valuees}`);
+  };
 
   return (
-    <div className=" bg-white  flex flex-col h-[10000px] border-1  border-zinc-400 w-140 ">
-      <div className="flex flex-wrap gap-2  justify-center w-full">
+    <div className=" bg-white  flex flex-col h-[10000px]  border-1  border-zinc-400 w-140 ">
+      <div className="flex flex-wrap gap-2  justify-center w-full ">
         {moviesData.slice(0, 3).map((movie, index) => {
           return (
-            <button
+            <div
               key={index}
-              className="flex items-center w-full h-[135px]  mb-3  rounded-sm"
+              className="flex items-center w-full h-[135px]  mb-3  rounded-sm  "
             >
               <div className="w-full flex   h-[110px] justify-between">
                 <div className="bg-[#f4f4f5] w-22 ml-3 rounded-xl">
@@ -45,7 +50,7 @@ export const SearchResults = (props) => {
                       {movie.release_date}
                     </div>
                   </div>
-                  <div className="flex w-30  items-end">
+                  <div className="flex w-30  items-end ">
                     <Link href={`/movie-detail/${movie.id}`}>
                       <button className="flex items-center ml-3 gap-1 mb-3  text-[14px] ">
                         see more <Right />
@@ -54,9 +59,16 @@ export const SearchResults = (props) => {
                   </div>
                 </div>
               </div>
-            </button>
+            </div>
           );
         })}
+      </div>
+
+      <div
+        className="h-15 flex items-center justify-center"
+        onClick={handleResultClick}
+      >
+        See all results for "{valuees}"
       </div>
     </div>
   );
