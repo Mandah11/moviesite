@@ -2,7 +2,7 @@ export const FooterIcon = () => {
   return (
     <svg
       width="90"
-      height="18"
+      height="21"
       viewBox="0 0 93 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -15,10 +15,12 @@ export default function MovieDetail() {
     return <div> Something wrong</div>;
   }
   return (
-    <div>
+    <>
       <Header />
-      <SearchAll value={value} />
-      <Footer />
-    </div>
+      <div className="sm:w-[1440px] m-auto  ">
+        <SearchAll value={value} />
+      </div>
+      {/* <Footer /> */}
+    </>
   );
 }

@@ -9,6 +9,7 @@ import { Search } from "../icons/Search";
 import { useEffect } from "react";
 import { SearchResults } from "./Searchk";
 import Link from "next/link";
+import { NotResult } from "../_component/NotResult";
 
 const options = {
   method: "GET",
@@ -35,36 +36,81 @@ export const Header = () => {
     );
     const jsondata = await data.json();
     setMoviesData(jsondata.results);
-    console.log("header", jsondata.results);
   };
   useEffect(() => {
     getData();
   }, [values]);
 
   return (
+    // <div>
+    //   <div className="m-auto  sm:flex-col  sm:w-[1440px] h-12 items-center mt-2 z-20 relative  ">
+    //     <div className="w-360 h-10 flex items-center justify-evenly ">
+    //       <div className="w-80 ">
+    //         <MoviesZ />
+    //       </div>
+
+    //       <div className="w-140 h-7 gap-[8px] flex flex-col">
+    //         <div className="w-140 h-7 gap-[8px] flex ">
+    //           <button
+    //             className="h-7 border-1  border-zinc-400 w-19 rounded-sm items-center flex justify-center cursor-pointer"
+    //             onClick={() => {
+    //               setOpenGenre(!openGenre);
+    //             }}
+    //           >
+    //             <DownIcon />
+    //             <p className="text-black text-[10px]  "> Genre </p>
+    //           </button>
+    //           <div className="flex items-center border-1  border-zinc-400  rounded-sm justify-evenly w-60">
+    //             <Search />
+
+    //             <input
+    //               className="w-50 h-full   text-xs outline-0"
+    //               placeholder="search..."
+    //               type="text"
+    //               value={values}
+    //               onChange={handleInputChange}
+    //             ></input>
+    //           </div>
+    //         </div>
+
+    //         {openGenre && <Genre />}
+    //         {values.length > 1 && (
+    //           <SearchResults moviesData={moviesData} valuees={values} />
+    //         )}
+    //       </div>
+
+    //       <button className="border-solid border-1 h-6 w-7 items-center flex justify-center border-zinc-400 rounded-sm ">
+    //         <Moon />
+    //       </button>
+    //     </div>
+    //   </div>
+    // </div>
     <div>
-      <div className="m-auto  flex-col  w-[1440px] h-12 items-center mt-2 z-20 relative  ">
-        <div className="w-360 h-10 flex items-center justify-evenly ">
-          <div className="w-80 ">
+      <div className="m-auto  flex-col  sm:w-[1440px] sm:h-12 items-center sm:mt-2 z-20 relative   ">
+        <div className="w-full h-full flex items-center justify-evenly sm:gap-20  ">
+          <div className="sm:w-50  w-57  ">
             <MoviesZ />
           </div>
 
-          <div className="w-140 h-7 gap-[8px] flex flex-col">
-            <div className="w-140 h-7 gap-[8px] flex ">
+          <div className="sm:w-140 sm:h-8 sm:gap-[8px] flex gap-[10px]   flex-col ">
+            <div className="sm:w-100 sm:h-8 sm:gap-[8px] flex ">
               <button
-                className="h-7 border-1  border-zinc-400 w-19 rounded-sm items-center flex justify-center cursor-pointer"
+                className="sm:h-8 border-1  border-zinc-400 sm:w-19 rounded-sm items-center sm:flex justify-center cursor-pointer hidden"
                 onClick={() => {
                   setOpenGenre(!openGenre);
                 }}
               >
                 <DownIcon />
-                <p className="text-black text-[10px]  "> Genre </p>
+                <p className="text-black sm:text-[10px] hidden sm:inline ">
+                  {" "}
+                  Genre{" "}
+                </p>
               </button>
-              <div className="flex items-center border-1  border-zinc-400  rounded-sm justify-evenly w-60">
-                <Search />
 
+              <div className="flex items-center border-1  border-zinc-400  sm:rounded-sm justify-evenly sm:w-60 w-8 h-8 rounded-lg  ">
+                <Search />
                 <input
-                  className="w-50 h-full   text-xs outline-0"
+                  className="sm:w-50 h-full   sm:text-xs outline-0 hidden sm:inline"
                   placeholder="search..."
                   type="text"
                   value={values}
@@ -79,7 +125,7 @@ export const Header = () => {
             )}
           </div>
 
-          <button className="border-solid border-1 h-6 w-7 items-center flex justify-center border-zinc-400 rounded-sm ">
+          <button className="border-solid border-1  items-center flex justify-center border-zinc-400 sm:rounded-sm rounded-lg  h-8 w-8">
             <Moon />
           </button>
         </div>

@@ -37,7 +37,7 @@ export const HeroSlider2 = () => {
     setLoading(true);
     const data = await fetch(apiLink, options);
     const jsondata = await data.json();
-    setUpComingMoviesData(jsondata.results);
+    setUpComingMoviesData(jsondata.results.slice(0, 4));
     setTimeout(() => {
       setLoading(false);
     }, 100);
@@ -59,28 +59,51 @@ export const HeroSlider2 = () => {
   console.log(slideNumber);
 
   return (
-    <div className="w-[100%] overflow-hidden flex justify-center ">
-      <div className="w-[1440px] overflow-hidden">
-        <div
-          className="flex w-[100%] transition-transform duration-700 ease-in-out  "
-          style={{ transform: `translateX(-${mmm}%)` }}
-        >
-          {upcomingMoviesData.slice(0, 4).map((movie, index) => {
-            return (
-              <HeroSliderPhoto
-                key={index}
-                img={movie.backdrop_path}
-                name={movie.title}
-                overview={movie.overview}
-                rate={Math.floor(movie.vote_average)}
-                movieId={movie.id}
-                handleNext={handleNextSlide}
-                handleBack={handleBackStep}
-              />
-            );
-          })}
+    <>
+      <div className="w-[100%] overflow-hidden flex justify-center ">
+        <div className="sm:w-[1440px] overflow-hidden w-[640px]">
+          <div
+            className="flex w-[100%] transition-transform sm:duration-700  ease-in-out  "
+            style={{ transform: `translateX(-${mmm}%)` }}
+          >
+            {upcomingMoviesData.map((movie, index) => {
+              return (
+                <HeroSliderPhoto
+                  key={index}
+                  index={index}
+                  total={upcomingMoviesData.length}
+                  img={movie.backdrop_path}
+                  name={movie.title}
+                  overview={movie.overview}
+                  rate={Math.floor(movie.vote_average)}
+                  movieId={movie.id}
+                  handleNext={handleNextSlide}
+                  handleBack={handleBackStep}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+      {upcomingMoviesData && (
+        <div className="sm:hidden ml-5 mt-4">
+          <div>Now Playing</div>
+          <div className="flex justify-between w-96 ">
+            <div className="w-30 text-red  ">{upcomingMoviesData.title}</div>
+            <div>6.9/10</div>
+          </div>
+          <div className="w-95 mt-4">
+            Elphaba, a misunderstood young woman because of her green skin, and
+            Glinda, a popular girl, become friends at Shiz University in the
+            Land of Oz. After an encounter with the Wonderful Wizard of Oz,
+            their friendship reaches a crossroads.{" "}
+          </div>
+
+          <button className="w-40 h-10 bg-black text-white rounded-md mt-4">
+            Watch Trailer
+          </button>
+        </div>
+      )}
+    </>
   );
 };

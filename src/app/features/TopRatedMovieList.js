@@ -39,16 +39,18 @@ export const TopRatedMovieList = (props) => {
   }
   return (
     <div className="w-full flex justify-center mt-10">
-      <div className="w-285 flex light: text-black flex-col ">
-        <div className="w-285 flex  justify-between">
-          <div className="w-50  ml-2  text-xl">{title}</div>
+      <div className="sm:w-285 flex text-black flex-col ">
+        <div className="sm:w-285 flex  justify-between">
+          <div className="sm:w-50  w-40 sm:ml-2 ml-6  text-xl font-medium">
+            {title}
+          </div>
           <Link href={"/toprated"}>
-            <button className="w-50   justify-end  flex items-center">
+            <button className="sm:w-50 w-40  justify-end  flex items-center mr-5 sm:mr-0 mt-1">
               See more <RightIcon />
             </button>
           </Link>
         </div>
-        <div className="flex flex-wrap  w-285 mt-2 justify-around gap-3">
+        <div className="flex flex-wrap  sm:w-285 mt-2 justify-evenly sm:gap-3">
           {upcomingMoviesData.slice(0, 10).map((movie, index) => {
             return (
               <MovieCard
