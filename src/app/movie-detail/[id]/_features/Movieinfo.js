@@ -144,14 +144,7 @@ export const Movieinfo = ({ id }) => {
               </div>
             </div>
             <div className=" absolute h-full mt-10">
-              {trailer && <TrailerId id={id} />}
-              {/* <button
-                onClick={() => trailer(null)}
-                className="absolute top-0 right-0 w-[20px] h-[20px] bg-white text-black hover:text-red"
-              >
-                {" "}
-                x{" "}
-              </button> */}
+              {trailer && <TrailerId setTrailer={setTrailer} id={id} />}
             </div>
           </div>
           <div className="w-full">
@@ -201,19 +194,47 @@ export const Movieinfo = ({ id }) => {
         </div>
       )}
 
-      <div className="w-full flex justify-center mt-10">
-        <div className="w-285 flex light: text-black flex-col ">
-          <div className="w-285 flex  justify-between">
-            <div className="w-50  ml-2 text-xl  ">More Like this</div>
+      <div className="w-285 m-auto sm:flex justify-center mt-10 hidden">
+        <div className="w-full flex  text-black flex-col ">
+          <div className="w-full flex  justify-between">
+            <div className="w-50 ml-2 text-xl font-medium ">More Like this</div>
             <Link href={`/movieseemore/?id=${id}`}>
-              <button className="w-50   justify-end  flex items-center ">
+              <button className="sm:w-50 w-40  justify-end  flex items-center mr-5 sm:mr-0 mt-1">
                 <p className="cursor-pointer"> See more</p>
                 <RightIcon />
               </button>
             </Link>
           </div>
-          <div className="flex flex-wrap  w-285 mt-2 justify-around gap-3">
+          <div className="flex flex-wrap  sm:w-285 mt-2 justify-evenly sm:gap-3">
             {MoviesMore?.slice(0, 5).map((movie, index) => {
+              return (
+                <MovieCard
+                  key={index}
+                  footer={movie.title}
+                  rate={Math.round(movie.vote_average)}
+                  movieId={movie.id}
+                  img={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      <div className="w-full flex justify-center mt-10 sm:hidden">
+        <div className="w-[430px] flex  text-black flex-col ">
+          <div className=" flex  justify-between">
+            <div className=" w-40  ml-6 text-xl font-medium ">
+              More Like this
+            </div>
+            <Link href={`/movieseemore/?id=${id}`}>
+              <button className=" w-40  justify-end  flex items-center mr-5 mt-1">
+                <p className="cursor-pointer"> See more</p>
+                <RightIcon />
+              </button>
+            </Link>
+          </div>
+          <div className="flex flex-wrap   mt-2 justify-evenly ">
+            {MoviesMore?.slice(0, 2).map((movie, index) => {
               return (
                 <MovieCard
                   key={index}

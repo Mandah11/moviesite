@@ -2,7 +2,7 @@
 import { FooterIcon } from "../icons/FooterIcon";
 import { EmailIcon } from "../icons/EmailIcon";
 import { PhoneIcon } from "../icons/PhoneIcon";
-import { MdOutlineEmail } from "react-icons/md";
+
 export const Footer = () => {
   return (
     // <div className="w-full bg-[#4338ca] h-50 mt-25 items-center justify-center flex">
@@ -38,7 +38,7 @@ export const Footer = () => {
     //     </div>
     //   </div>
     // </div>
-    <div className="w-full bg-[#4338ca] sm:h-50 sm:mt-25 sm:items-center justify-center flex h-50 mt-5">
+    <div className="sm:w-[1440px] m-auto bg-[#4338ca] sm:h-50 sm:mt-25 sm:items-center justify-center flex h-50 mt-5 w-full">
       <div className="sm:w-285 sm:h-40  sm:flex sm:justify-between h-10 w-90 mt-5">
         <div className="sm:w-80  h-full sm:gap-4 sm:text-xs text-[13px] gap-5  ">
           <FooterIcon />

@@ -28,6 +28,7 @@ export const HeroSliderPhoto = (props) => {
   } = props;
   const [trailer, setTrailer] = useState();
   const [MoviesMore, setMoviesMore] = useState([]);
+  const [removetraier, setRemoveTrailer] = useState(null);
 
   const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`;
   const getMore = async () => {
@@ -82,7 +83,7 @@ export const HeroSliderPhoto = (props) => {
           </button>
         </div>
         <div className=" absolute h-full mt-10">
-          {trailer && <TrailerId id={movieId} />}
+          {trailer && <TrailerId setTrailer={setTrailer} id={movieId} />}
         </div>
         <div className="w-60 h-20  flex justify-end pr-8">
           {index < total - 1 && (
@@ -96,60 +97,5 @@ export const HeroSliderPhoto = (props) => {
         </div>
       </div>
     </div>
-    // <div className=" w-full m-auto sm:h-170 h-90 flex relative object-cover  ">
-    //   <img
-    //     className=" absolute z-10 h-full w-full object-cover "
-    //     src={`https://image.tmdb.org/t/p/original${img}`}
-    //   ></img>
-
-    //   <div className="flex items-center justify-end w-full">
-    //     <div>
-    //       <div className="w-35 justify-center sm:h-20  flex  sm:pr-8">
-    //         {index > 0 && (
-    //           <button
-    //             onClick={handleBack}
-    //             className=" bg-[#f4f4f5]   sm:h-9 sm:w-9 flex items-center justify-center rounded-xl"
-    //           >
-    //             <BackButtonIcon />
-    //           </button>
-    //         )}
-    //       </div>
-    //     </div>
-
-    //     <div className=" sm:flex flex-col justify-center pl-10 w-280   text-white hidden  ">
-    //       <div className="w-36 ">
-    //         <span>Now Playing: </span>
-    //         <span>{name}</span>
-    //       </div>
-    //       <div className="flex items-center">
-    //         <StartIcon />
-    //         <p> {rate}/10</p>
-    //       </div>
-    //       <div className="w-100       text-white">{overview}</div>
-    //       <button
-    //         className="w-40 light: bg-white rounded-sm h-8 items-center justify-center flex gap-2 mt-4"
-    //         onClick={() => {
-    //           setTrailer(!trailer);
-    //         }}
-    //       >
-    //         <PlayIcon />
-    //         <p className="text-black">Watch Trailer</p>
-    //       </button>
-    //     </div>
-    //     <div className=" absolute h-full mt-10">
-    //       {trailer && <TrailerId id={movieId} />}
-    //     </div>
-    //     <div className="w-60 h-20  flex justify-end pr-8">
-    //       {index < total - 1 && (
-    //         <button
-    //           onClick={handleNext}
-    //           className=" light: bg-[#f4f4f5] h-9 w-9 flex items-center justify-center rounded-xl"
-    //         >
-    //           <NextButtonIcon />
-    //         </button>
-    //       )}
-    //     </div>
-    //   </div>
-    // </div>
   );
 };

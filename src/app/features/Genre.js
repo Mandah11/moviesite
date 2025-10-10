@@ -26,14 +26,14 @@ export const Genre = () => {
 
   return (
     <div className=" bg-white   flex flex-col  border-1 h-74 border-zinc-400 max-w-fit">
-      <div className="text-sm ml-2 w-60">
+      <div className="text-sm w-60 ml-2">
         <p className="text-xl"> Genre</p>
         <p>See lists of movies by genre</p>
       </div>
 
       <div className="border-t-2 w-130 flex mt-3 mb-3   border-zinc-400 ml-2"></div>
 
-      <div className="flex flex-wrap gap-4 mb-5 ml-2">
+      <div className="flex flex-wrap gap-2 mb-4 ml-2">
         {genresData.map((name, index) => {
           return (
             <GenreItem genrename={name.name} key={index} genreid={name.id} />

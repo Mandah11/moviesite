@@ -39,11 +39,13 @@ export const Movielike = ({ id }) => {
   return (
     <>
       <div className="w-full flex justify-center mt-10">
-        <div className="w-285 flex light: text-black flex-col ">
-          <div className="w-285 flex  justify-between">
-            <div className="w-50  ml-2 text-xl  ">More Like this</div>
+        <div className="sm:w-285 flex light: text-black flex-col ">
+          <div className="sm:w-285 flex  justify-between">
+            <div className="sm:w-50 w-40 sm:ml-2 ml-6 text-xl font-medium ">
+              More Like this
+            </div>
           </div>
-          <div className="flex flex-wrap  w-285 mt-2 justify-around gap-3">
+          <div className="flex flex-wrap  sm:w-285 mt-2 justify-evenly sm:gap-3">
             {MoviesMore?.map((movie, index) => {
               return (
                 <MovieCard

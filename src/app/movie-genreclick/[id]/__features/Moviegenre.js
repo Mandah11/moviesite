@@ -73,12 +73,10 @@ export const MovieGenre = ({ id }) => {
     <>
       <div className="sm:w-[1440px] flex justify-between m-auto ">
         <div className="flex flex-col w-100 ">
-          <div className="  flex justify-start sm:text-[30px] ml-1 ">
+          <div className="  flex justify-start sm:text-[30px] ">
             Search Filter{" "}
           </div>
-          <div>
-            <GenreInform />
-          </div>
+          <GenreInform />
         </div>
         <div className=" flex justify-center border-1 border-[#E4E4E7] "></div>
         <div>

@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { SearchResults } from "./Searchk";
 import Link from "next/link";
 import { NotResult } from "../_component/NotResult";
+import { useRouter } from "next/navigation";
 
 const options = {
   method: "GET",
@@ -20,6 +21,10 @@ const options = {
   },
 };
 export const Header = () => {
+  const router = useRouter();
+  const handleHomeClick = () => {
+    router.push(`/`);
+  };
   const [moviesData, setMoviesData] = useState([]);
   const [openGenre, setOpenGenre] = useState(false);
 
@@ -88,7 +93,7 @@ export const Header = () => {
     <div>
       <div className="m-auto  flex-col  sm:w-[1440px] sm:h-12 items-center sm:mt-2 z-20 relative   ">
         <div className="w-full h-full flex items-center justify-evenly sm:gap-20  ">
-          <div className="sm:w-50  w-57  ">
+          <div className="sm:w-50  w-57  " onClick={handleHomeClick}>
             <MoviesZ />
           </div>
 
