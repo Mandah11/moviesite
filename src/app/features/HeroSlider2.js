@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { HeroSliderPhoto } from "../_component/HeroSliderPhoto";
 
 import { HeroSliderLoading } from "../_component/HerosliderLoading";
+import { HeroSliderPhotoMobileVersion } from "../_component/HeroSliderPhotoaMobileVersion";
 
 const apiLink =
   "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
@@ -82,24 +83,20 @@ export const HeroSlider2 = () => {
               );
             })}
           </div>
+          <div className="sm:hidden ml-5 mt-4">
+            {upcomingMoviesData.map((movie, index) => {
+              return (
+                <HeroSliderPhotoMobileVersion
+                  key={index}
+                  name={movie.title}
+                  overview={movie.overview}
+                  rate={Math.floor(movie.vote_average)}
+                  movieId={movie.id}
+                />
+              );
+            })}
+          </div>
         </div>
-      </div>
-      <div className="sm:hidden ml-5 mt-4">
-        <div>Now Playing: </div>
-        <div className="flex justify-between w-96 ">
-          <div className="w-30 text-red  ">wicked</div>
-          <div>6.9/10</div>
-        </div>
-        <div className="w-95 mt-4">
-          Elphaba, a misunderstood young woman because of her green skin, and
-          Glinda, a popular girl, become friends at Shiz University in the Land
-          of Oz. After an encounter with the Wonderful Wizard of Oz, their
-          friendship reaches a crossroads.{" "}
-        </div>
-
-        <button className="w-40 h-10 bg-black text-white rounded-md mt-4">
-          Watch Trailer
-        </button>
       </div>
     </>
   );

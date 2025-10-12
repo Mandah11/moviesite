@@ -89,7 +89,7 @@ export const HeroSliderPhoto = (props) => {
           {index < total - 1 && (
             <button
               onClick={handleNext}
-              className=" light: bg-[#f4f4f5] sm:h-9 sm:w-9 h-5 w-5 flex items-center justify-center rounded-xl"
+              className=" bg-[#f4f4f5] sm:h-9 sm:w-9 h-5 w-5 flex items-center justify-center rounded-xl"
             >
               <NextButtonIcon />
             </button>

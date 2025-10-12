@@ -70,20 +70,17 @@ export const MovieGenre = ({ id }) => {
   };
 
   return (
-    <>
-      <div className="sm:w-[1440px] flex justify-between m-auto ">
-        <div className="flex flex-col w-100 ">
-          <div className="  flex justify-start sm:text-[30px] ">
-            Search Filter{" "}
-          </div>
+    <div className="mt-7 ">
+      <div className=" text-[25px] font-medium ">Search Filter</div>
+      <div className="flex justify-between mt-5  ">
+        <div>
           <GenreInform />
         </div>
-        <div className=" flex justify-center border-1 border-[#E4E4E7] "></div>
-        <div>
-          <div className=" w-85 justify-center flex  mt-3">
+        <div className="w-[70%] border-l-1 pl-14 ">
+          <div>
             {totalResult} titles in "{GenreName[0]?.name}"
           </div>
-          <div className="flex flex-wrap w-full  mt-4 gap-4 justify-center items-center ">
+          <div className="flex flex-wrap  gap-4  w-full ">
             {MoviesData.map((movie, index) => {
               return (
                 <MovieCard
@@ -96,7 +93,7 @@ export const MovieGenre = ({ id }) => {
               );
             })}
           </div>
-          <div className="flex gap-4 w-230  mt-10 justify-end ">
+          <div className="flex gap-4 w-225  mt-10 justify-end ">
             <button
               className="border-1 w-24 rounded-sm cursor-pointer"
               style={{
@@ -170,6 +167,6 @@ export const MovieGenre = ({ id }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };

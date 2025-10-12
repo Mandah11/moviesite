@@ -103,31 +103,35 @@ export const Movieinfo = ({ id }) => {
   return (
     <>
       {MoviesData && (
-        <div className="w-[1080px]  h-auto m-auto mt-10 ">
+        <div className="sm:w-[1080px]  h-auto m-auto sm:mt-10 mt-5 ">
           <div
-            className="flex h-[72px]
-          justify-between  items-center"
+            className="flex sm:h-[72px]
+          justify-between  items-center sm:p-0 p-5"
           >
             <div>
-              <p className="text-2xl font-semibold">{MoviesData.title}</p>
-              <p>{MoviesData.release_date}</p>
+              <p className="sm:text-2xl sm:font-semibold text-xl font-semibold">
+                {MoviesData.title}
+              </p>
+              <p className="text-[15px] sm:text-[18px]">
+                {MoviesData.release_date}
+              </p>
             </div>
             <div>
               <p>Rating{MoviesData.vote_average}/10</p>
             </div>
           </div>
 
-          <div className="w-full h-[428px]  flex justify-between">
+          <div className="w-full sm:h-[428px] h-[283px]  flex justify-between">
             <img
-              className="h-full w-[290px] hover:opacity-30 object-cover"
+              className="h-full w-[290px] hover:opacity-30 object-cover sm:flex hidden "
               src={`https://image.tmdb.org/t/p/original/${MoviesData.poster_path}`}
             />
-            <div className="h-full w-[760px]   relative items-end flex">
+            <div className="h-full w-[760px]   relative items-end flex ">
               <img
                 className=" absolute -z-1 h-full w-full object-cover hover:opacity-30"
                 src={`https://image.tmdb.org/t/p/original/${MoviesData.backdrop_path}`}
               />
-              <div className="flex h-20  w-full items-center gap-2 z-0">
+              <div className="flex h-20  w-full items-center gap-2 z-0 ">
                 <div className=" flex justify-center    text-white items-center h-full ml-3">
                   <button
                     className="w-11  bg-white rounded-full h-11 items-center justify-center flex gap-2 "
@@ -143,11 +147,12 @@ export const Movieinfo = ({ id }) => {
                 </div>
               </div>
             </div>
-            <div className=" absolute h-full mt-10">
+            <div className=" absolute h-full mt-7">
               {trailer && <TrailerId setTrailer={setTrailer} id={id} />}
             </div>
           </div>
-          <div className="w-full">
+
+          <div className="w-full mt-3 sm:flex flex-col hidden ">
             <div className="mt-3 flex gap-2">
               {MoviesData?.genres?.map((genre, index) => {
                 return (
@@ -160,36 +165,67 @@ export const Movieinfo = ({ id }) => {
                 );
               })}
             </div>
-            <div className="mt-3">
+            <div className="mt-5">
               <p>{MoviesData.overview}</p>
+            </div>
+          </div>
+          <div className="sm:hidden w-full  flex justify-center">
+            <div className="flex w-[90%]  justify-between">
+              <img
+                className="h-[148px] w-[100px]  hover:opacity-30 object-cover sm:flex mt-4 sm:mt-0"
+                src={`https://image.tmdb.org/t/p/original/${MoviesData.poster_path}`}
+              />
+              <div className=" w-[70%]">
+                <div className="mt-4 flex gap-2 flex-wrap ">
+                  {MoviesData?.genres?.map((genre, index) => {
+                    return (
+                      <button
+                        key={index}
+                        className="flex text-sm/11 items-center border-1 gap-1 w-auto pl-2  border-zinc-400 h-5 justify-center rounded-xl "
+                      >
+                        {genre.name} <RightIcon />
+                      </button>
+                    );
+                  })}
+                </div>
+                <div className="ml-1.5  w-[90%] mt-2.5">
+                  <p>{MoviesData.overview}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       )}
       {MoviesInform && (
-        <div className="w-[1080px]  h-auto m-auto">
-          <div className="mt-3 w-full">
-            <div className="flex gap-4">
-              <p className="w-17  ">Director</p>
+        <div className="sm:w-[1080px]  h-auto m-auto  ">
+          <div className="sm:mt-3 w-full sm:ml-0 p-6 sm:p-0 ">
+            <div className="flex gap-4 h-10 items-center">
+              <p className="w-17 font-bold ">Director</p>
               {MoviesInform.crew?.slice(0, 1).map((item, index) => {
                 return <span key={index}>{item.name}</span>;
               })}
             </div>
-            <div className="border-1 w-full h-0.2 border-[#E4E4E7] mt-2"> </div>
-            <div className="flex  gap-4 ">
+            <div className="border-1 sm:w-full w-95 h-0.2 border-[#E4E4E7] mt-2">
+              {" "}
+            </div>
+            <div className="flex  gap-4 h-10 items-center ">
               <p className="w-17  font-bold"> Writers</p>
               {MoviesInform.crew?.slice(2, 4).map((item, index) => {
                 return <span key={index}>{item.name}</span>;
               })}
             </div>
-            <div className="border-1 w-full h-0.2 border-[#E4E4E7] mt-2"> </div>
-            <div className="flex  gap-4">
-              <p className="w-17  "> Stars</p>
-              {MoviesInform.cast?.slice(0, 3).map((item, index) => {
+            <div className="border-1 sm:w-full w-95 h-0.2 border-[#E4E4E7] mt-2">
+              {" "}
+            </div>
+            <div className="flex  gap-4 h-10 items-center">
+              <p className="w-17 font-bold "> Stars</p>
+              {MoviesInform.cast?.slice(0, 2).map((item, index) => {
                 return <span key={index}>{item.name}</span>;
               })}
             </div>
-            <div className="border-1 w-full h-0.2 border-[#E4E4E7] mt-2"> </div>
+            <div className="border-1 sm:w-full w-95 h-0.2 border-[#E4E4E7] mt-2">
+              {" "}
+            </div>
           </div>
         </div>
       )}

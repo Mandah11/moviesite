@@ -90,6 +90,7 @@ export const Header = () => {
     //     </div>
     //   </div>
     // </div>
+
     <div>
       <div className="m-auto  flex-col  sm:w-[1440px] sm:h-12 items-center sm:mt-2 z-20 relative   ">
         <div className="w-full h-full flex items-center justify-evenly sm:gap-20  ">
@@ -136,5 +137,32 @@ export const Header = () => {
         </div>
       </div>
     </div>
+    // <div className="flex w-[1440px] justify-between m-auto p-8">
+    //   <div>
+    //     <MoviesZ />{" "}
+    //   </div>
+
+    //   <div className="flex">
+    //     <button className="flex">
+    //       <DownIcon />
+    //       <p className="text-[10px]  ">Genre</p>
+    //     </button>
+
+    //     <div className="flex">
+    //       <Search />
+    //       <input
+    //         className="w-50 h-full   text-xs  "
+    //         placeholder="search..."
+    //         type="text"
+    //         value={values}
+    //         onChange={handleInputChange}
+    //       ></input>
+    //     </div>
+    //   </div>
+
+    //   <button className="border-1  items-center flex justify-center border-zinc-400 rounded-sm  h-6 ">
+    //     <Moon />
+    //   </button>
+    // </div>
   );
 };

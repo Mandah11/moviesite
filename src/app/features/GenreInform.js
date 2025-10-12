@@ -27,14 +27,14 @@ export const GenreInform = () => {
   }, []);
 
   return (
-    <div className=" sm:bg-white  flex flex-col max-h-fit">
-      <div className=" sm:w-100   ">
+    <div className=" sm:bg-white  flex flex-col max-h-fit w-95">
+      <div>
         <p className="sm:text-[22px] text-[22px]font-medium"> Genre</p>
         <p className="sm:text-[17px] text-[16px] font-medium">
           See lists of movies by genre
         </p>
       </div>
-      <div className="flex justify-evenly mt-4  sm:mt-2">
+      <div className="flex justify-evenly mt-4  sm:mt-2 ">
         <div className="flex flex-wrap sm:gap-4  sm:w-100  sm:mt-2 gap-4  ">
           {genresData.map((name, index) => {
             return (

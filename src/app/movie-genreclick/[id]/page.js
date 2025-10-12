@@ -16,7 +16,9 @@ export default function MovieDetail() {
   return (
     <div>
       <Header />
-      <MovieGenre id={id} />
+      <div className="sm:w-[1440px] m-auto  ">
+        <MovieGenre id={id} />
+      </div>
       <Footer />
     </div>
   );
