@@ -27,10 +27,10 @@ export const GenreInform = () => {
   }, []);
 
   return (
-    <div className=" sm:bg-white  flex flex-col max-h-fit w-95">
+    <div className=" sm:bg-white  flex flex-col max-h-fit w-95 sm:mt-0 mt-5 sm:mb-0 mb-10 ">
       <div>
-        <p className="sm:text-[22px] text-[22px]font-medium"> Genre</p>
-        <p className="sm:text-[17px] text-[16px] font-medium">
+        <p className="sm:text-[22px] text-[25px] font-medium"> Genre</p>
+        <p className="sm:text-[17px] text-[18px] font-medium">
           See lists of movies by genre
         </p>
       </div>

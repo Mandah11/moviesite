@@ -34,7 +34,7 @@ export const SearchAll = ({ value }) => {
       <div className=" sm:flex justify-between mt-5  ">
         <div className="sm:w-[70%]  sm:pl-14 pl-5 sm:border-r-1">
           <div>
-            {MoviesData.length} results for "{value}"
+            {MoviesData.length} results for &quot;{value}&quot;
             <div>{MoviesData.length == 0 && <NotResult />}</div>
           </div>
 
@@ -52,7 +52,7 @@ export const SearchAll = ({ value }) => {
             })}
           </div>
         </div>
-        <div>
+        <div className="pl-5">
           <GenreInform />
         </div>
       </div>

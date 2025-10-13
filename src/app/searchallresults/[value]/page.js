@@ -16,11 +16,11 @@ export default function MovieDetail() {
   }
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <div className="sm:w-[1440px] m-auto  ">
         <SearchAll value={value} />
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

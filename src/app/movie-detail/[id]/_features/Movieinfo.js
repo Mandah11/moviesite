@@ -5,6 +5,7 @@ import { MovieCard } from "@/app/_component/MovieCard";
 import Link from "next/link";
 import { PlayIcon } from "@/app/icons/PlayIcon";
 import { TrailerId } from "@/app/features/TrailerId";
+import { TrailerIdMovieInfo } from "@/app/features/TrailerIdMovieInfo";
 
 const options = {
   method: "GET",
@@ -112,9 +113,16 @@ export const Movieinfo = ({ id }) => {
               <p className="sm:text-2xl sm:font-semibold text-xl font-semibold">
                 {MoviesData.title}
               </p>
-              <p className="text-[15px] sm:text-[18px]">
-                {MoviesData.release_date}
-              </p>
+              <div className="flex items-center gap-2">
+                <p className="text-[15px] sm:text-[18px]">
+                  {MoviesData.release_date}
+                </p>
+                <div className="flex">
+                  {" "}
+                  <p>{Math.floor(MoviesData.runtime / 60)}h</p>
+                  <p>{Math.ceil(MoviesData.runtime % 60)}min</p>
+                </div>
+              </div>
             </div>
             <div>
               <p>Rating{MoviesData.vote_average}/10</p>
@@ -148,7 +156,9 @@ export const Movieinfo = ({ id }) => {
               </div>
             </div>
             <div className=" absolute h-full mt-7">
-              {trailer && <TrailerId setTrailer={setTrailer} id={id} />}
+              {trailer && (
+                <TrailerIdMovieInfo setTrailer={setTrailer} id={id} />
+              )}
             </div>
           </div>
 

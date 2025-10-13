@@ -11,6 +11,8 @@ import { SearchResults } from "./Searchk";
 import Link from "next/link";
 import { NotResult } from "../_component/NotResult";
 import { useRouter } from "next/navigation";
+import { MoonIcon } from "lucide-react";
+import { SearchItem } from "./SearchItem";
 
 const options = {
   method: "GET",
@@ -27,11 +29,13 @@ export const Header = () => {
   };
   const [moviesData, setMoviesData] = useState([]);
   const [openGenre, setOpenGenre] = useState(false);
+  const [openSearchBar, setOpenSearchBar] = useState(false);
 
   const [values, setValues] = useState("");
 
   const handleInputChange = (e) => {
     setValues(e.target.value);
+    setOpenGenre(false);
   };
 
   const getData = async () => {
@@ -47,63 +51,22 @@ export const Header = () => {
   }, [values]);
 
   return (
-    // <div>
-    //   <div className="m-auto  sm:flex-col  sm:w-[1440px] h-12 items-center mt-2 z-20 relative  ">
-    //     <div className="w-360 h-10 flex items-center justify-evenly ">
-    //       <div className="w-80 ">
-    //         <MoviesZ />
-    //       </div>
-
-    //       <div className="w-140 h-7 gap-[8px] flex flex-col">
-    //         <div className="w-140 h-7 gap-[8px] flex ">
-    //           <button
-    //             className="h-7 border-1  border-zinc-400 w-19 rounded-sm items-center flex justify-center cursor-pointer"
-    //             onClick={() => {
-    //               setOpenGenre(!openGenre);
-    //             }}
-    //           >
-    //             <DownIcon />
-    //             <p className="text-black text-[10px]  "> Genre </p>
-    //           </button>
-    //           <div className="flex items-center border-1  border-zinc-400  rounded-sm justify-evenly w-60">
-    //             <Search />
-
-    //             <input
-    //               className="w-50 h-full   text-xs outline-0"
-    //               placeholder="search..."
-    //               type="text"
-    //               value={values}
-    //               onChange={handleInputChange}
-    //             ></input>
-    //           </div>
-    //         </div>
-
-    //         {openGenre && <Genre />}
-    //         {values.length > 1 && (
-    //           <SearchResults moviesData={moviesData} valuees={values} />
-    //         )}
-    //       </div>
-
-    //       <button className="border-solid border-1 h-6 w-7 items-center flex justify-center border-zinc-400 rounded-sm ">
-    //         <Moon />
-    //       </button>
-    //     </div>
-    //   </div>
-    // </div>
-
-    <div>
-      <div className="m-auto  flex-col  sm:w-[1440px] sm:h-12 items-center sm:mt-2 z-20 relative   ">
-        <div className="w-full h-full flex items-center justify-evenly sm:gap-20  ">
-          <div className="sm:w-50  w-57  " onClick={handleHomeClick}>
-            <MoviesZ />
-          </div>
-
-          <div className="sm:w-140 sm:h-8 sm:gap-[8px] flex gap-[10px]   flex-col ">
-            <div className="sm:w-100 sm:h-8 sm:gap-[8px] flex ">
+    <div className="sm:w-[1440px] m-auto relative z-20 h-15 items-center  justify-center">
+      <div className="flex justify-between sm:w-[1200px]  m-auto h-full items-center ">
+        <div
+          className="h-8 w-30 sm:w-80 flex items-center ml-4 sm:ml-0 "
+          onClick={handleHomeClick}
+        >
+          <MoviesZ />
+        </div>
+        <div className=" flex gap-2 sm:w-180 sm:justify-between items-center  ">
+          <div className="sm:w-140 flex flex-col h-9">
+            <div className=" sm:w-100 flex gap-2 ">
               <button
-                className="sm:h-8 border-1  border-zinc-400 sm:w-19 rounded-sm items-center sm:flex justify-center cursor-pointer hidden"
+                className="h-9   border-1  border-zinc-400 w-19 rounded-sm items-center sm:flex justify-center cursor-pointer hidden "
                 onClick={() => {
                   setOpenGenre(!openGenre);
+                  setValues("");
                 }}
               >
                 <DownIcon />
@@ -112,57 +75,37 @@ export const Header = () => {
                   Genre{" "}
                 </p>
               </button>
+              <div className="flex items-center border-1  border-zinc-400  rounded-sm justify-center sm:w-60  w-9  h-9 sm: gap-2">
+                <div
+                  onClick={() => {
+                    setOpenSearchBar(!openSearchBar);
+                  }}
+                >
+                  <Search />
+                </div>
 
-              <div className="flex items-center border-1  border-zinc-400  sm:rounded-sm justify-evenly sm:w-60 w-8 h-8 rounded-lg  ">
-                <Search />
                 <input
-                  className="sm:w-50 h-full   sm:text-xs outline-0 hidden sm:inline"
+                  className="sm:w-50 h-full   sm:text-xs outline-0 hidden sm:flex"
                   placeholder="search..."
                   type="text"
                   value={values}
                   onChange={handleInputChange}
                 ></input>
               </div>
-            </div>
-
-            {openGenre && <Genre />}
+            </div>{" "}
+            {moviesData == 0 && openGenre && <Genre />}
             {values.length > 1 && (
               <SearchResults moviesData={moviesData} valuees={values} />
             )}
           </div>
-
-          <button className="border-solid border-1  items-center flex justify-center border-zinc-400 sm:rounded-sm rounded-lg  h-8 w-8">
+          <button className="border-solid border-1  items-center flex justify-center border-zinc-400 rounded-sm   h-9 w-9 mr-4 ">
             <Moon />
           </button>
         </div>
+        <div className=" absolute w-full sm:hidden">
+          {openSearchBar && <SearchItem setOpenSearchBar={setOpenSearchBar} />}
+        </div>
       </div>
     </div>
-    // <div className="flex w-[1440px] justify-between m-auto p-8">
-    //   <div>
-    //     <MoviesZ />{" "}
-    //   </div>
-
-    //   <div className="flex">
-    //     <button className="flex">
-    //       <DownIcon />
-    //       <p className="text-[10px]  ">Genre</p>
-    //     </button>
-
-    //     <div className="flex">
-    //       <Search />
-    //       <input
-    //         className="w-50 h-full   text-xs  "
-    //         placeholder="search..."
-    //         type="text"
-    //         value={values}
-    //         onChange={handleInputChange}
-    //       ></input>
-    //     </div>
-    //   </div>
-
-    //   <button className="border-1  items-center flex justify-center border-zinc-400 rounded-sm  h-6 ">
-    //     <Moon />
-    //   </button>
-    // </div>
   );
 };

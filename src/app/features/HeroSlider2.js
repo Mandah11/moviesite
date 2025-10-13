@@ -60,10 +60,10 @@ export const HeroSlider2 = () => {
 
   return (
     <>
-      <div className="w-[100%] overflow-hidden flex justify-center ">
-        <div className="sm:w-[1440px] overflow-hidden w-[640px]">
+      <div className="w-[100vw] overflow-hidden flex justify-center ">
+        <div className="sm:w-[1440px] overflow-hidden w-[430px]">
           <div
-            className="flex w-[100%] transition-transform sm:duration-700  ease-in-out  "
+            className="flex w-[100%] transition-transform sm:duration-700  ease-in-out h-fit "
             style={{ transform: `translateX(-${mmm}%)` }}
           >
             {upcomingMoviesData.map((movie, index) => {
@@ -79,19 +79,6 @@ export const HeroSlider2 = () => {
                   movieId={movie.id}
                   handleNext={handleNextSlide}
                   handleBack={handleBackStep}
-                />
-              );
-            })}
-          </div>
-          <div className="sm:hidden ml-5 mt-4">
-            {upcomingMoviesData.map((movie, index) => {
-              return (
-                <HeroSliderPhotoMobileVersion
-                  key={index}
-                  name={movie.title}
-                  overview={movie.overview}
-                  rate={Math.floor(movie.vote_average)}
-                  movieId={movie.id}
                 />
               );
             })}

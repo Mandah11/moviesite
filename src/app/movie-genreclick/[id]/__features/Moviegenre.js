@@ -71,16 +71,18 @@ export const MovieGenre = ({ id }) => {
 
   return (
     <div className="mt-7 ">
-      <div className=" text-[25px] font-medium ">Search Filter</div>
-      <div className="flex justify-between mt-5  ">
-        <div>
+      <div className=" text-[25px] font-medium  sm:pl-0 pl-5">
+        Search Filter
+      </div>
+      <div className="sm:flex justify-between mt-5  ">
+        <div className="pl-5 sm:pl-0">
           <GenreInform />
         </div>
-        <div className="w-[70%] border-l-1 pl-14 ">
+        <div className="sm:w-[70%] sm:border-l-1 sm:pl-14 pl-5">
           <div>
-            {totalResult} titles in "{GenreName[0]?.name}"
+            {totalResult} titles in &quot;{GenreName[0]?.name}&quot;
           </div>
-          <div className="flex flex-wrap  gap-4  w-full ">
+          <div className="flex flex-wrap  sm:gap-4 gap-7 sm:w-full ">
             {MoviesData.map((movie, index) => {
               return (
                 <MovieCard
@@ -93,9 +95,9 @@ export const MovieGenre = ({ id }) => {
               );
             })}
           </div>
-          <div className="flex gap-4 w-225  mt-10 justify-end ">
+          <div className="gap-3 flex sm:gap-4  w-100 sm:w-225  mt-10 sm:justify-end ">
             <button
-              className="border-1 w-24 rounded-sm cursor-pointer"
+              className="border-1 sm:w-24 w-16 text-[14px] sm:text-[16.5px] rounded-sm cursor-pointer"
               style={{
                 borderColor: backClick ? "black" : "#f5f5f7",
               }}
@@ -111,6 +113,7 @@ export const MovieGenre = ({ id }) => {
                   e.preventDefault();
                   handleNumber(page - 1);
                 }}
+                className="text-[14px] sm:text-[16px]"
               >
                 {page - 1}
               </button>
@@ -120,7 +123,7 @@ export const MovieGenre = ({ id }) => {
               onClick={() => {
                 handleNumber(page);
               }}
-              className="border-1 w-10 rounded-sm"
+              className="border-1 sm:w-10 text-[14px] sm:text-[16px] w-7  rounded-sm"
               style={{
                 borderColor: backClick ? "black" : "none",
                 borderColor: nextClick ? "black" : "none",
@@ -133,6 +136,7 @@ export const MovieGenre = ({ id }) => {
                 e.preventDefault();
                 handleNumber(page + 1);
               }}
+              className="text-[14px] sm:text-[16px]"
               style={{
                 borderColor: backClick ? "black" : "none",
                 borderColor: nextClick ? "black" : "none",
@@ -145,6 +149,7 @@ export const MovieGenre = ({ id }) => {
                 e.preventDefault();
                 handleNumber(page + 2);
               }}
+              className="text-[14px] sm:text-[16px]"
               style={{
                 borderColor: backClick ? "black" : "none",
                 borderColor: nextClick ? "black" : "none",
@@ -153,9 +158,9 @@ export const MovieGenre = ({ id }) => {
               {page + 2}
             </button>
             <button>....</button>
-            <button>{totalPage}</button>
+            <button className="text-[15px] sm:text-[16px]">{totalPage}</button>
             <button
-              className="border-1 w-20 rounded-sm cursor-pointer"
+              className="border-1 sm:w-20 w-13 text-[14px] sm:text-[17px] rounded-sm cursor-pointer"
               style={{
                 borderColor: nextClick ? "black" : "#f5f5f7",
               }}
