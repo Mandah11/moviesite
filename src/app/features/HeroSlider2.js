@@ -40,7 +40,7 @@ export const HeroSlider2 = () => {
     setUpComingMoviesData(jsondata.results.slice(0, 4));
     setTimeout(() => {
       setLoading(false);
-    }, 100);
+    }, 4000);
   };
 
   useEffect(() => {

@@ -25,6 +25,7 @@ export const MovieGenre = ({ id }) => {
       options
     );
     const jsondata = await data.json();
+
     setMoviesData(jsondata.results);
     setTotalPage(jsondata.total_pages);
     setTotalResult(jsondata.total_results);
@@ -113,7 +114,7 @@ export const MovieGenre = ({ id }) => {
                   e.preventDefault();
                   handleNumber(page - 1);
                 }}
-                className="text-[14px] sm:text-[16px]"
+                className="text-[14px] sm:text-[16px] cursor-pointer"
               >
                 {page - 1}
               </button>
@@ -123,7 +124,7 @@ export const MovieGenre = ({ id }) => {
               onClick={() => {
                 handleNumber(page);
               }}
-              className="border-1 sm:w-10 text-[14px] sm:text-[16px] w-7  rounded-sm"
+              className="border-1 sm:w-10 text-[14px] sm:text-[16px] w-7  rounded-sm cursor-pointer"
               style={{
                 borderColor: backClick ? "black" : "none",
                 borderColor: nextClick ? "black" : "none",
@@ -136,7 +137,7 @@ export const MovieGenre = ({ id }) => {
                 e.preventDefault();
                 handleNumber(page + 1);
               }}
-              className="text-[14px] sm:text-[16px]"
+              className="text-[14px] sm:text-[16px] cursor-pointer"
               style={{
                 borderColor: backClick ? "black" : "none",
                 borderColor: nextClick ? "black" : "none",
@@ -149,7 +150,7 @@ export const MovieGenre = ({ id }) => {
                 e.preventDefault();
                 handleNumber(page + 2);
               }}
-              className="text-[14px] sm:text-[16px]"
+              className="text-[14px] sm:text-[16px] cursor-pointer"
               style={{
                 borderColor: backClick ? "black" : "none",
                 borderColor: nextClick ? "black" : "none",

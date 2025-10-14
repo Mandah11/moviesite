@@ -9,7 +9,8 @@ const options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NzZiMzEwNzJlZDg5ODcwMzQxM2Y0NzkyYzZjZTdjYyIsIm5iZiI6MTczODAyNjY5NS44NCwic3ViIjoiNjc5ODJlYzc3MDJmNDkyZjQ3OGY2OGUwIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.k4OF9yGrhA2gZ4VKCH7KLnNBB2LIf1Quo9c3lGF6toE",
   },
 };
-export const TrailerIdMovieInfo = ({ id, setTrailer }) => {
+
+export const MiniTrailerId = ({ id, setMiniTrailer }) => {
   const [MoviesMore, setMoviesMore] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -29,7 +30,7 @@ export const TrailerIdMovieInfo = ({ id, setTrailer }) => {
   const handleRemove = () => {
     console.log("dghsgdh");
 
-    setTrailer(null);
+    setMiniTrailer(null);
   };
   useEffect(() => {
     getMore();
@@ -40,11 +41,11 @@ export const TrailerIdMovieInfo = ({ id, setTrailer }) => {
   }
   return (
     <>
-      <div className="relative flex w-[1080px] justify-center items-center  ">
-        <div className="w-[1050px] flex ml-50">
+      <div className="relative flex w-[390px] justify-center items-center  ">
+        <div className="w-[430px] flex ">
           <iframe
-            width="700px"
-            height="450px"
+            width="400px"
+            height="300px"
             src={`https://www.youtube.com/embed/${MoviesMore[0]?.key}?autoplay=1`}
             title="Path of the Wind - My Neighbor Totoro [Piano Tutorial] (Synthesia) // Torby Brand"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

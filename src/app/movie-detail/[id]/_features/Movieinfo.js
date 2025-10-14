@@ -6,6 +6,9 @@ import Link from "next/link";
 import { PlayIcon } from "@/app/icons/PlayIcon";
 import { TrailerId } from "@/app/features/TrailerId";
 import { TrailerIdMovieInfo } from "@/app/features/TrailerIdMovieInfo";
+import { LittlestarIcon } from "@/app/icons/LittleStar";
+import { StarIcon } from "lucide-react";
+import { StartInfo } from "@/app/icons/StarInfo";
 
 const options = {
   method: "GET",
@@ -33,7 +36,7 @@ export const Movieinfo = ({ id }) => {
 
     setTimeout(() => {
       setLoading(false);
-    }, 100);
+    }, 4000);
   };
 
   const getInform = async () => {
@@ -48,7 +51,7 @@ export const Movieinfo = ({ id }) => {
 
     setTimeout(() => {
       setLoading(false);
-    }, 100);
+    }, 4000);
   };
   const getMore = async () => {
     setLoading(true);
@@ -60,7 +63,9 @@ export const Movieinfo = ({ id }) => {
     setMoviesMore(jsondata.results);
     console.log("this is more like", jsondata.results);
 
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -76,8 +81,8 @@ export const Movieinfo = ({ id }) => {
   if (loading) {
     return (
       <>
-        <div className="w-[1080px]  h-auto m-auto mt-10 ">
-          <div className="w-full h-[428px]  flex justify-between">
+        <div className="sm:w-[1080px] w-[430px] h-auto m-auto mt-10 ">
+          <div className="w-full sm:h-[428px] h-[328px]  flex justify-between">
             <div className=" bg-[#f4f4f5] h-full w-[290px] hover:opacity-30 object-cover" />
             <div className=" bg-[#f4f4f5] h-full w-[760px] hover:opacity-30 object-cover" />
           </div>
@@ -94,8 +99,36 @@ export const Movieinfo = ({ id }) => {
                 );
               })}
             </div>
-            <div className="mt-3 w-full h-5 bg-[#f4f4f5]"></div>
-            <div className="mt-3 w-100 h-5 bg-[#f4f4f5]"></div>
+            <div className="mt-3 sm:w-full w-102 ml-3 h-5 bg-[#f4f4f5]"></div>
+            <div className="mt-3 w-100 h-5 ml-3 bg-[#f4f4f5]"></div>
+          </div>
+          <div className="sm:hidden flex ">
+            <div className="mt-3 w-[120px] ml-3 h-35 bg-[#f4f4f5]"></div>
+            <div className="flex flex-col">
+              <div className="mt-3 w-70 h-5 ml-3 bg-[#f4f4f5]"></div>
+              <div className="mt-3 w-70 h-5 ml-3 bg-[#f4f4f5]"></div>
+              <div className="mt-3 w-50 h-5 ml-3 bg-[#f4f4f5]"></div>
+            </div>
+          </div>
+          <div>
+            <div className="flex flex-wrap sm:w-285 w-[430px] mt-2 sm:justify-around sm:gap-3 justify-evenly gap-3">
+              <div className="sm:w-53 sm:h-90 w-40 h-70 bg-[#f4f4f5]  mt-1"></div>
+              <div className="sm:w-53 sm:h-90 w-40 h-70 bg-[#f4f4f5]  mt-1"></div>
+              <div className="sm:w-53 sm:h-90 w-40 h-70 bg-[#f4f4f5]  mt-1"></div>
+              <div className="sm:w-53 sm:h-90 w-40 h-70 bg-[#f4f4f5]  mt-1"></div>
+              <div className="sm:w-53 sm:h-90 w-40 h-70 bg-[#f4f4f5]  mt-1"></div>
+            </div>
+          </div>
+          <div className="sm:hidden flex flex-col justify-evenly  mt-3 sm:w-[1080px] w-[430px] ml-3 sm:ml-0 ">
+            <div className="flex gap-8">
+              <div className="sm:w-53 sm:h-90 w-40 h-70 bg-[#f4f4f5]  mt-1"></div>
+              <div className="sm:w-53 sm:h-90 w-40 h-70 bg-[#f4f4f5]  mt-1"></div>
+            </div>
+
+            <div className="flex gap-8">
+              <div className="sm:w-53 sm:h-90 w-40 h-70 bg-[#f4f4f5]  mt-1"></div>
+              <div className="sm:w-53 sm:h-90 w-40 h-70 bg-[#f4f4f5]  mt-1"></div>
+            </div>
           </div>
         </div>
       </>
@@ -107,7 +140,7 @@ export const Movieinfo = ({ id }) => {
         <div className="sm:w-[1080px]  h-auto m-auto sm:mt-10 mt-5 ">
           <div
             className="flex sm:h-[72px]
-          justify-between  items-center sm:p-0 p-5"
+          justify-between  items-center sm:p-0 p-5 "
           >
             <div>
               <p className="sm:text-2xl sm:font-semibold text-xl font-semibold">
@@ -124,8 +157,14 @@ export const Movieinfo = ({ id }) => {
                 </div>
               </div>
             </div>
-            <div>
-              <p>Rating{MoviesData.vote_average}/10</p>
+
+            <div className=" w-20 flex flex-col items-e h-full">
+              <p> Rating</p>
+              <div className="flex w-20">
+                <StartInfo />
+                <div>6.9/10</div>
+              </div>
+              <p className="ml-2 text-[15qpx]">{MoviesData.popularity}K</p>
             </div>
           </div>
 
@@ -155,7 +194,7 @@ export const Movieinfo = ({ id }) => {
                 </div>
               </div>
             </div>
-            <div className=" absolute h-full mt-7">
+            <div className=" absolute h-full mt-10">
               {trailer && (
                 <TrailerIdMovieInfo setTrailer={setTrailer} id={id} />
               )}

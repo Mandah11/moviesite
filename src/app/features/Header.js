@@ -54,7 +54,7 @@ export const Header = () => {
     <div className="sm:w-[1440px] m-auto relative z-20 h-15 items-center  justify-center">
       <div className="flex justify-between sm:w-[1200px]  m-auto h-full items-center ">
         <div
-          className="h-8 w-30 sm:w-80 flex items-center ml-4 sm:ml-0 "
+          className="h-8 w-30 sm:w-80 flex items-center ml-4 sm:ml-0 cursor-pointer"
           onClick={handleHomeClick}
         >
           <MoviesZ />

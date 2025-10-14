@@ -16,7 +16,7 @@ export const MovieCard = (props) => {
       onClick={handleMovieClick}
     >
       <img
-        className="sm:h-71  hover:opacity-30 object-cover w-full h-65 rounded-xl"
+        className="sm:h-71  hover:brightness-75 duration-300 object-cover w-full h-65 rounded-xl"
         src={img}
       />
 
