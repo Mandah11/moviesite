@@ -140,31 +140,45 @@ export const Movieinfo = ({ id }) => {
         <div className="sm:w-[1080px]  h-auto m-auto sm:mt-10 mt-5 ">
           <div
             className="flex sm:h-[72px]
-          justify-between  items-center sm:p-0 p-5 "
+           justify-between  items-center sm:p-0 p-2 "
           >
             <div>
-              <p className="sm:text-2xl sm:font-semibold text-xl font-semibold">
+              <p className="sm:text-2xl sm:font-semibold text-2xl font-semibold">
                 {MoviesData.title}
               </p>
               <div className="flex items-center gap-2">
-                <p className="text-[15px] sm:text-[18px]">
+                <p className="text-[15px] sm:text-[18px] text-[#515151]">
                   {MoviesData.release_date}
                 </p>
-                <div className="flex">
+                <div className="flex gap-1 text-[#515151]">
                   {" "}
-                  <p>{Math.floor(MoviesData.runtime / 60)}h</p>
+                  <p>{Math.floor(MoviesData.runtime / 60)}h </p>
                   <p>{Math.ceil(MoviesData.runtime % 60)}min</p>
                 </div>
               </div>
             </div>
-
-            <div className=" w-20 flex flex-col items-e h-full">
-              <p> Rating</p>
-              <div className="flex w-20">
-                <StartInfo />
-                <div>6.9/10</div>
+            <div className="ml- sm:ml-0">
+              <p className="text-[13px]"> Rating</p>
+              <div className=" w-23 flex flex-col  h-full">
+                <div className="flex w-20 items-center h-10">
+                  <StartInfo />
+                  <div className="flex flex-col justify-center items-center">
+                    <div>
+                      <span className="text-[17px] font-medium">
+                        {" "}
+                        {Math.round(MoviesData.vote_average)}
+                      </span>
+                      <span className="text-[#515151]"> /</span>
+                      <span className="text-[#515151] sm:text-[15px] text-[13px]">
+                        10
+                      </span>
+                    </div>
+                    <p className=" sm:text-[12px] text-[13px] text-[#515151]  ">
+                      {Math.ceil(MoviesData.popularity)}K
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p className="ml-2 text-[15qpx]">{MoviesData.popularity}K</p>
             </div>
           </div>
 

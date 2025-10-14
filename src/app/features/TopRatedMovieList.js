@@ -33,6 +33,10 @@ export const TopRatedMovieList = (props) => {
   if (loading) {
     return (
       <div>
+        <div className="m-auto w-[1140px] ">
+          <div className="mt-5 sm:w-80 w-30 sm:ml-0 ml-8 h-5 bg-[#f4f4f5]"></div>
+        </div>
+
         <MovieCardLoading />
       </div>
     );

@@ -12,47 +12,6 @@ export const SearchResults = (props) => {
   };
 
   return (
-    // <>
-    //   <div className="  flex   border-1  border-zinc-400 w-140  rounded-sm mt-3 ">
-    //     <div className="flex flex-wrap w-full h-[170px] max-h-fit   ">
-    //       {moviesData.slice(0, 2).map((movie, index) => {
-    //         return (
-    //           <div
-    //             key={index}
-    //             className="flex  w-full h-full rounded-sm  items-center mb-2 bg-white"
-    //           >
-    //             <div className="w-full flex justify-between ">
-    //               <div className="bg-[#f4f4f5] w-22  ml-3 rounded-xl">
-    //                 <img
-    //                   className="rounded-xl"
-    //                   src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-    //                 />
-    //               </div>
-    //               <div className="w-110 flex flex-col justify-between  ">
-    //                 <div>
-    //                   <div className=""> {movie.title} </div>
-    //                   <div className="flex ">
-    //                     <LittlestarIcon /> {movie.vote_average}
-    //                   </div>
-    //                 </div>
-
-    //                 <div className="flex justify-between  w-105 ">
-    //                   <div>{movie.release_date}</div>
-    //                   <div>
-    //                     <button className="flex items-center sm:ml-3 gap-1 sm:mb-3  sm:text-[14px] cursor-pointer text-[10px] ">
-    //                       see more <Right />
-    //                     </button>
-    //                   </div>
-    //                 </div>
-    //               </div>
-    //             </div>
-    //           </div>
-    //         );
-    //       })}
-    //     </div>
-    //   </div>
-    // </>
-
     <div className="  flex flex-col h-[500px]  border-1  border-zinc-400 sm:w-140   mt-3 w-95 bg-white  ">
       <div className="flex flex-wrap gap-2  justify-center w-full sm:mt-0  mt-3 ">
         {moviesData.slice(0, 3).map((movie, index) => {
@@ -105,10 +64,10 @@ export const SearchResults = (props) => {
         })}
       </div>
       <div
-        className="h-15 flex items-center  justify-start ml-5"
+        className="h-15 flex items-center  justify-start ml-5 cursor-pointer"
         onClick={handleResultClick}
       >
-        <p className="cursor-pointer"> See all results for "{valuees}"</p>
+        <p>See all results for &quot;{valuees}&quot;</p>
       </div>
     </div>
   );
