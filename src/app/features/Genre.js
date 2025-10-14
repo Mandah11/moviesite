@@ -32,11 +32,11 @@ export const Genre = () => {
   if (loading) {
     return (
       <div>
-        <div class=" mt-3 flex items-center justify-center w-140 h-30 border border-gray-200 rounded-lg bg-white ">
+        <div className=" mt-3 flex items-center justify-center sm:w-140 w-96 h-30 border border-gray-200 rounded-lg bg-white ">
           <div role="status">
             <svg
               aria-hidden="true"
-              class="w-8 h-8 text-gray-200 animate-spin fill-white"
+              className="w-8 h-8 text-gray-200 animate-spin fill-white"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ export const Genre = () => {
                 fill="currentFill"
               />
             </svg>
-            <span class="sr-only">Loading...</span>
+            <span className="sr-only">Loading...</span>
           </div>
         </div>
       </div>

@@ -63,8 +63,8 @@ export const SearchAll = ({ value }) => {
       <div className=" sm:flex justify-between mt-5  ">
         <div className="sm:w-[70%]  sm:pl-14 pl-5 sm:border-r-1">
           <div>
-            {MoviesData.length} results for &quot;{value}&quot;
-            <div>{MoviesData.length == 0 && <NotResult />}</div>
+            {totalResult} results for &quot;{value}&quot;
+            {/* <div>{MoviesData.length == 0 && <NotResult />}</div> */}
           </div>
 
           <div className="flex flex-wrap sm:w-full sm:gap-4 gap-7">
@@ -80,81 +80,87 @@ export const SearchAll = ({ value }) => {
               );
             })}
           </div>
-          <div className="gap-3 flex sm:gap-4  w-100 sm:w-225  mt-10 sm:justify-end ">
-            <button
-              className="border-1 sm:w-24 w-16 text-[14px] sm:text-[16.5px] rounded-sm cursor-pointer"
-              style={{
-                borderColor: backClick ? "black" : "#f5f5f7",
-              }}
-              onClick={handleBackStep}
-            >
-              {" "}
-              Previous{" "}
-            </button>
+          {MoviesData.length == 0 ? (
+            <NotResult />
+          ) : (
+            <div className="gap-3 flex sm:gap-4  w-100 sm:w-225  mt-10 sm:justify-end ">
+              <button
+                className="border-1 sm:w-24 w-16 text-[14px] sm:text-[16.5px] rounded-sm cursor-pointer"
+                style={{
+                  borderColor: backClick ? "black" : "#f5f5f7",
+                }}
+                onClick={handleBackStep}
+              >
+                {" "}
+                Previous{" "}
+              </button>
 
-            {page > 1 && (
+              {page > 1 && (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNumber(page - 1);
+                  }}
+                  className="text-[14px] sm:text-[16px]"
+                >
+                  {page - 1}
+                </button>
+              )}
+
+              <button
+                onClick={() => {
+                  handleNumber(page);
+                }}
+                className="border-1 sm:w-10 text-[14px] sm:text-[16px] w-7  rounded-sm cursor-pointer"
+                style={{
+                  borderColor: backClick ? "black" : "none",
+                  borderColor: nextClick ? "black" : "none",
+                }}
+              >
+                {page}
+              </button>
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  handleNumber(page - 1);
+                  handleNumber(page + 1);
                 }}
-                className="text-[14px] sm:text-[16px]"
+                className="text-[14px] sm:text-[16px] cursor-pointer"
+                style={{
+                  borderColor: backClick ? "black" : "none",
+                  borderColor: nextClick ? "black" : "none",
+                }}
               >
-                {page - 1}
+                {page + 1}
               </button>
-            )}
-
-            <button
-              onClick={() => {
-                handleNumber(page);
-              }}
-              className="border-1 sm:w-10 text-[14px] sm:text-[16px] w-7  rounded-sm cursor-pointer"
-              style={{
-                borderColor: backClick ? "black" : "none",
-                borderColor: nextClick ? "black" : "none",
-              }}
-            >
-              {page}
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                handleNumber(page + 1);
-              }}
-              className="text-[14px] sm:text-[16px] cursor-pointer"
-              style={{
-                borderColor: backClick ? "black" : "none",
-                borderColor: nextClick ? "black" : "none",
-              }}
-            >
-              {page + 1}
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                handleNumber(page + 2);
-              }}
-              className="text-[14px] sm:text-[16px] cursor-pointer"
-              style={{
-                borderColor: backClick ? "black" : "none",
-                borderColor: nextClick ? "black" : "none",
-              }}
-            >
-              {page + 2}
-            </button>
-            <button>....</button>
-            <button className="text-[15px] sm:text-[16px]">{totalPage}</button>
-            <button
-              className="border-1 sm:w-20 w-13 text-[14px] sm:text-[17px] rounded-sm cursor-pointer"
-              style={{
-                borderColor: nextClick ? "black" : "#f5f5f7",
-              }}
-              onClick={handleNextStep}
-            >
-              {" "}
-              Next{" "}
-            </button>
-          </div>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNumber(page + 2);
+                }}
+                className="text-[14px] sm:text-[16px] cursor-pointer"
+                style={{
+                  borderColor: backClick ? "black" : "none",
+                  borderColor: nextClick ? "black" : "none",
+                }}
+              >
+                {page + 2}
+              </button>
+              <button>....</button>
+              <button className="text-[15px] sm:text-[16px]">
+                {totalPage}
+              </button>
+              <button
+                className="border-1 sm:w-20 w-13 text-[14px] sm:text-[17px] rounded-sm cursor-pointer"
+                style={{
+                  borderColor: nextClick ? "black" : "#f5f5f7",
+                }}
+                onClick={handleNextStep}
+              >
+                {" "}
+                Next{" "}
+              </button>
+            </div>
+          )}
         </div>
         <div className="pl-5">
           <GenreInform />

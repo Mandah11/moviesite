@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { MovieCard } from "../_component/MovieCard";
-
+import { MovieCardLoading } from "../_component/MovieCardLoading";
 const options = {
   method: "GET",
   headers: {
@@ -27,7 +27,9 @@ export const TopRatedMovieSeeMore = (props) => {
     );
     const jsondata = await data.json();
     setUpComingMoviesData(jsondata.results);
-    setLoading(false);
+    setTimeout(() => {
+      setLoading(false);
+    }, 4000);
   };
   useEffect(() => {
     getData(page);
@@ -52,7 +54,16 @@ export const TopRatedMovieSeeMore = (props) => {
     }
   };
   if (loading) {
-    return <div> </div>;
+    return (
+      <div>
+        <div className="m-auto w-[1140px] ">
+          <div className="mt-5 sm:w-80 w-30 sm:ml-0 ml-8 h-5 bg-[#f4f4f5]"></div>
+        </div>
+
+        <MovieCardLoading />
+        <MovieCardLoading />
+      </div>
+    );
   }
   return (
     <div className="w-full flex justify-center mt-10">

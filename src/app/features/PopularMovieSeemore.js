@@ -15,17 +15,21 @@ export const PopularMovieSeeMore = (props) => {
   const { title } = props;
   const [upcomingMoviesData, setUpComingMoviesData] = useState([]);
   const [totalPage, setTotalPage] = useState();
-
+  const [loading, setLoading] = useState(false);
   const [nextClick, setNextClick] = useState(false);
   const [backClick, setBackClick] = useState(false);
   const [page, setPage] = useState(1);
   const getData = async () => {
+    setLoading(true);
     const data = await fetch(
       `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`,
       options
     );
     const jsondata = await data.json();
     setUpComingMoviesData(jsondata.results);
+    setTimeout(() => {
+      setLoading(false);
+    }, 4000);
   };
   useEffect(() => {
     getData(page);
@@ -49,6 +53,18 @@ export const PopularMovieSeeMore = (props) => {
       setBackClick(true);
     }
   };
+  if (loading) {
+    return (
+      <div>
+        <div className="m-auto w-[1140px] ">
+          <div className="mt-5 sm:w-80 w-30 sm:ml-0 ml-8 h-5 bg-[#f4f4f5]"></div>
+        </div>
+
+        <MovieCardLoading />
+        <MovieCardLoading />
+      </div>
+    );
+  }
   return (
     <div className="w-full flex justify-center mt-10">
       <div className="sm:w-285 flex text-black flex-col ">
